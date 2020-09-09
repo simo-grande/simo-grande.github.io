@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: sum.js</title>
+    <title>JSDoc: Source: isVowel.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: sum.js</h1>
+    <h1 class="page-title">Source: isVowel.js</h1>
 
     
 
@@ -30,21 +30,28 @@
 /* eslint-disable*/
 /**
  * 
- * @param {object} arr is an array input.
- * 
- * @returns sum of array values. 
+ * @param {string} charc 
+ * @returns {boolean} result. 
  */
 
-function sum(arr) {
-    let sum = 0;
-    for (let i = 0;i&lt;arr.length;i++) {
-        sum += arr[i];
-    }
-    return sum;
 
+
+function isVowel(charc){
+let vowel="aeiou";
+
+for(let i=0;i&lt;vowel.length;i++){   //hello
+   
+       if (vowel[i]===charc){
+           return true;
+       
+
+   }
 }
-const ar1=[1,2,3,4];
-alert(sum(ar1));
+return false;
+}
+console.log(isVowel("r"));
+
+
 
 </code></pre>
         </article>

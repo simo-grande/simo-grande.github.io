@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: sum.js</title>
+    <title>JSDoc: Source: reverse.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: sum.js</h1>
+    <h1 class="page-title">Source: reverse.js</h1>
 
     
 
@@ -29,24 +29,26 @@
             <pre class="prettyprint source linenums"><code>"use strict";
 /* eslint-disable*/
 /**
- * 
- * @param {object} arr is an array input.
- * 
- * @returns sum of array values. 
+ * reverses values of an array.
+ * @param {object} arr is an array input
+ * @returns a reversed array.
  */
 
-function sum(arr) {
-    let sum = 0;
-    for (let i = 0;i&lt;arr.length;i++) {
-        sum += arr[i];
+function reverseArray(arr) {
+    let temp = [];
+    let j = 0;
+
+    for (let i = arr.length - 1; i > 0; i--) {
+        temp[j] = arr[i];
+        temp[arr.length - 1] = arr[0];
+
+        j++;
     }
-    return sum;
+    return temp;
 
 }
-const ar1=[1,2,3,4];
-alert(sum(ar1));
-
-</code></pre>
+const arr1 = [1, 2, 3, 4, 5];
+alert(reverseArray(arr1));</code></pre>
         </article>
     </section>
 
