@@ -9,8 +9,8 @@ let calculator = {
     },
   
     read() {
-      this.a = +prompt('a?', 0);
-      this.b = +prompt('b?', 0);
+      this.a = +prompt('enter a number', 0);
+      this.b = +prompt('enter another number', 0);
     }
   };
   
