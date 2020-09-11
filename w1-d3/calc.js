@@ -1,4 +1,5 @@
 /*eslint-disable */
+
 let calculator = {
     sum() {
       return this.a + this.b;
