@@ -4,6 +4,7 @@ describe("calculator", function() {
   
     context("when 2 and 3 entered", function() {
       beforeEach(function() {
+        // eslint-disable-next-line no-undef
         sinon.stub(window, "prompt");
   
         prompt.onCall(0).returns("2");
