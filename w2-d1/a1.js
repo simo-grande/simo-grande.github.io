@@ -1,3 +1,4 @@
+/*eslint-disable */
 let obj = {};
 
 function A() { return obj; }

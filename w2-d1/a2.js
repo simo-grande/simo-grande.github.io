@@ -1,3 +1,4 @@
+/*eslint-disable */
 const prompt = require("prompt-sync")();
 function Calculator() {
     this.read = function () {

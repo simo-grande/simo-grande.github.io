@@ -1,3 +1,4 @@
+/*eslint-disable */
 describe("Accumulator", function() {
 
     beforeEach(function() {
