@@ -33,6 +33,9 @@ function showTitle() {
     })
     document.getElementById("textarea").innerHTML = result.join("\n");
 }
+function scramble() {
+    
+}
 
 function showAuthor() {
     let result = library.map(item => {
