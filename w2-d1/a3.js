@@ -12,4 +12,4 @@ function Accumulator(startingValue) {
 let accu = new Accumulator(5);
 accu.read();
 //accu.read();
-console.log(accu.value);
+alert(accu.value);
