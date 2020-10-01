@@ -20,7 +20,7 @@ console.log(max);
 let maxAge = peopleArray.reduce((max, value) => value.age > max ? value.age : max, peopleArray[0].age);
 console.log(maxAge);
 
-let chain = peopleArray.map(element => element.age).reduce((max, value) => max>value, 0);
+
 
 
 
