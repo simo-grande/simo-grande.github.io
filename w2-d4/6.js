@@ -10,9 +10,9 @@ function treeModifier(treeNode, modFunc){
     }
 }
 
-let a = [];
-let b = [];
-console.log( a === b);
+// let a = [];
+// let b = [];
+// console.log( a === b);
 
 
 
@@ -27,12 +27,12 @@ function starFunction(node){
     return undefined;
 }
 
-/**
- * 
- * @param {Object} node from simpson tree
- * @returns {undefine}
- * changes the node value to be upper case
- */
+// /**
+//  * 
+//  * @param {Object} node from simpson tree
+//  * @returns {undefine}
+//  * changes the node value to be upper case
+//  */
 function caps(node){
     node.value = node.value.toUpperCase();
 }
@@ -61,5 +61,5 @@ class TreeNode {
     homer.descendents.push(bart, lisa, maggie);
 
     console.log(treeModifier(abe, caps));
-    console.log('now tree has stars', abe);
+    console.log('now tree has stars: ', abe);
 
