@@ -16,27 +16,21 @@ abe.descendents.push(homer);
 homer.descendents.push(bart, lisa, maggie);
 
 
-function contains(node, target) {
-    if (node.value === null) {
-        if (node.value === target) {
-            return node;
-        } else {
-            return null;
-        }
-    } else {
-        let childResult = null;
-        if (node.value === target) {
-            return node;
-        }
-
-
-        for (let child of node.descendents) {
-            childResult = contains(child, target);
-            if (childResult === true) {
-                return child;
-            }
-        }
-        return childResult;
+function valueExist (tree, name) {
+ 
+    if(tree.value === name) 
+    return tree;
+    
+    let found=null;
+    for (let i of tree.descendents) {
+    
+    found = valueExist (i, name)
+    if(found) 
+    return found;
     }
-}
-console.log(contains(abe, "Maggie"));
+    
+    return found;
+    
+   }
+    
+   console.log(valueExist(abe, "Lisa"))
