@@ -10,5 +10,5 @@ function mapper(n) {
 }
 
 let arrin = [1, 2, 3, 4, 5];
-console.log("Mapped Array of power 2: ",myMap(arrin, mapper));
-console.log("Orginal Array: ",arrin)
+console.log("Mapped Array of power 2: ", myMap(arrin, mapper));
+console.log("Orginal Array: ", arrin)
