@@ -1,4 +1,4 @@
-/* eslint-disable*/
+
 function Counter() {
     let count = 0;
 
