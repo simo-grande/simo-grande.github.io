@@ -10,11 +10,11 @@ let user = {
     name: 'John',
 
     loginOk() {
-        console.log(`${this.name} logged in`);
+       alert(`${this.name} logged in`);
     },
 
     loginFail() {
-        console.log(`${this.name} failed to log in`);
+        alert(`${this.name} failed to log in`);
     },
 
 };
