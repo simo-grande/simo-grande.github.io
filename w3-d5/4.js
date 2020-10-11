@@ -3,7 +3,7 @@ let hamster = {
     stomach: [],
   
     eat(food) {
-      this.stomach.push(food);
+      this.stomach=[food];
     }
   };
   
@@ -14,10 +14,9 @@ let hamster = {
   let lazy = {
     __proto__: hamster
   };
-  
-  // This one found the food
+ 
   speedy.eat("apple");
-  console.log( speedy.stomach ); // apple
+  console.log( speedy.stomach ); 
   
-  // This one also has it, why? fix please.
-  console.log( lazy.stomach ); // apple
+  
+  console.log( lazy.stomach ); 
