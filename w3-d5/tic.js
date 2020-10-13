@@ -177,6 +177,10 @@ function checkWinner() {
 
             if (setFound == true) {
                 win = true;
+                if (playerSelections === player1Selections) {
+                    alert(" Congratulations Player 1 on your winning sequence in squares: " + playerSelections);
+                } else alert("Congratulations Player 2 on your winning sequence in squares: " + playerSelections);
+
                 break;
             }
         }
