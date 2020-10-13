@@ -10,7 +10,8 @@ let currentPlayer = 0;
 let move = 0;
 let points1 = 0;
 let points2 = 0;
-let size = 4;
+
+let brdSize = prompt("Enter the board size: ")
 
 
 function drawBoard() {
@@ -92,18 +93,52 @@ function reset() {
 }
 
 function loadAnswers() {
-    winners.push([1, 2, 3, 4]);
-    winners.push([5, 6, 7, 8]);
-    winners.push([9, 10, 11, 12]);
-    winners.push([13, 14, 15, 16]);
-    winners.push([1, 5, 9, 13]);
-    winners.push([2, 6, 10, 14]);
-    winners.push([3, 7, 11, 15]);
-    winners.push([4, 8, 12, 16]);
-    winners.push([1, 6, 11, 16]);
-    winners.push([4, 7, 10, 13]);
-}
+    if (brdSize == 3) {
+        winners.push([1, 2, 3]);
+        winners.push([4, 5, 6]);
+        winners.push([7, 8, 9]);
+        winners.push([1, 4, 7]);
+        winners.push([2, 5, 8]);
+        winners.push([3, 6, 9]);
+        winners.push([1, 5, 9]);
+        winners.push([3, 5, 7]);
+    } else if (brdSize == 4) {
+        winners.push([1, 2, 3, 4]);
+        winners.push([5, 6, 7, 8]);
+        winners.push([9, 10, 11, 12]);
+        winners.push([13, 14, 15, 16]);
+        winners.push([1, 5, 9, 13]);
+        winners.push([2, 6, 10, 14]);
+        winners.push([3, 7, 11, 15]);
+        winners.push([4, 8, 12, 16]);
+        winners.push([1, 6, 11, 16]);
+        winners.push([4, 7, 10, 13]);
+    }
+    else if (brdSize > 4) {
+        let count = brdSize - 4;
 
+        for (let i = 0; i <= count; i++) {
+            let temp = [];
+            for (let a = 1 + i; a <= 4 + i; a++) {
+                temp.push(a);
+            }
+            winners.push(temp);
+
+        }
+
+        for (let j = +brdSize; j < brdSize * brdSize; j += +brdSize) {
+            for (let i = 0; i <= count; i++) {
+                let temp = [];
+                for (let a = 1 + i + +j; a <= 4 + i + +j; a++) {
+                    temp.push(a);
+                }
+                winners.push(temp);
+
+            }
+        }
+
+    }
+}
 function checkWinner() {
 
     let win = false;
@@ -112,7 +147,7 @@ function checkWinner() {
     if (currentPlayer == 0) playerSelections = player1Selections;
     else playerSelections = player2Selections;
 
-    if (playerSelections.length >= size) {
+    if (playerSelections.length >= brdSize) {
         // check if any 'winners' are also in your selections
 
         for (let i = 0; i < winners.length; i++) {
