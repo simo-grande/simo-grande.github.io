@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book List</title>
+    <script src="js/books.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand"> The CityLibrary ::: a CS418 WebApp project</a>
+            <div class="col-sm--88">
+                <a href="about.html"><button type="button" class="btn btn-primary">About Us</button></a>
+            </div>
+            <div class="col-sm--88">
+                <a href="virtualtour.html"> <button type="button" class="btn btn-primary">Virtual Tour</button></a>
+            </div>
+            <div class="col-sm">
+                <a href="books.html"> <button type="button" class="btn btn-primary">Books</button></a>
+            </div>
+
+            <a class="navbar-brand"> Welcome,Guest</a>
+
+        </div>
+    </nav>
+
+    <div class="container pt-3 my-3 border" id="alerto">
+        <h2 style="color:dodgerblue">
+            Books in our Collection
+            <a href="addNewBook.html"><button type="button" class="btn btn-link" style="float: right;">Add new
+                    Book</button></a>
+        </h2>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">ISBN</th>
+                    <th scope="col">Book Title</th>
+                    <th scope="col">Overdue Fee</th>
+                    <th scope="col">Publisher</th>
+                    <th scope="col">Date Published</th>
+                </tr>
+            </thead>
+            <tbody id="bookList">
+
+            </tbody>
+        </table>
+
+    </div>
+
+</body>
+
+</html>
+
+
+
+
+
