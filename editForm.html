@@ -56,7 +56,7 @@
         <form id="editBookForm">
             <fieldset>
 
-                <input id="bookid" type="hidden" name="bookId" value="" />
+                <input id="bookId" type="hidden" name="bookId" value="" />
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
@@ -89,14 +89,103 @@
                     </div>
                 </div>
                 <br>
-                <button type="button" class="btn btn-link" style="float: right;" id="save" onclick="addBook()">Save
-                    Book</button>&nbsp;&nbsp;
+                <button type="button" class="btn btn-link" style="float: right;" id="submit">
+                    Submit
+                </button>&nbsp;&nbsp;
                 <input type="reset" class="btn btn-link" style="float: right;" onclick="refresh()" value="Reset">
 
 
             </fieldset>
         </form>
     </div>
+    <!--new edited script-->
+
+    <script>
+        const editBookForm = document.getElementById("editBookForm");
+        const txtBookId = document.querySelector("#bookId");
+        const txtIsbn = document.querySelector("#isbn");
+        const txtTitle = document.querySelector("#title");
+        const txtOverdueFee = document.querySelector("#fee");
+        const txtPublisher = document.querySelector("#Publisher");
+        const dtpkDatePublished = document.querySelector("#date");
+        const alertMessageBox = document.getElementById("alertMessageBox");
+
+        function fetchAndDisplayBookData() {
+            const params = new URLSearchParams(window.location.search);
+            const bookId = params.get("bookId");
+            // fetch the book data by id
+            fetch('https://elibraryrestapi.herokuapp.com/elibrary/api/book/get/' + bookId)
+                .then((response) => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        return Promise.reject({ status: response.status, statusText: response.statusText });
+                    }
+                })
+                .then(book => {
+                    txtBookId.value = book.bookId;
+                    txtIsbn.value = book.isbn;
+                    txtTitle.value = book.title;
+                    txtOverdueFee.value = book.overdueFee.toFixed(2);
+                    txtPublisher.value = book.publisher;
+                    dtpkDatePublished.value = book.datePublished;
+                })
+                .catch(err => {
+                    console.log('Error message:', err.statusText);
+                    //document.getElementById("divBooksList").innerHTML = '<p style="color:#ff0000;">We are sorry. The elibrary books data service is unavailable.Please try again later</p >';
+                });
+        }
+
+        fetchAndDisplayBookData();
+
+        document.querySelector("#submit").onclick = function (e) {
+            e.preventDefault();
+            //const formData = new FormData(this);
+            const bookId = txtBookId.value;
+            const isbn = txtIsbn.value;
+            const title = txtTitle.value;
+            const overdueFee = parseFloat(txtOverdueFee.value);
+            const publisher = txtPublisher.value;
+            const datePublished = dtpkDatePublished.value;
+            const editedBookData = {
+                "bookId": bookId,
+                "isbn": isbn,
+                "title": title,
+                "overdueFee": overdueFee,
+                "publisher": publisher,
+                "datePublished": datePublished
+            };
+
+            fetch("https://elibraryrestapi.herokuapp.com/elibrary/api/book/update/" + bookId, {
+                method: "put",
+                body: JSON.stringify(editedBookData),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).then(function (response) {
+                return response.json();
+            }).then(function (jsonResponseData) {
+                console.log(jsonResponseData);
+                txtIsbn.value = "";
+                txtTitle.value = "";
+                txtOverdueFee.value = "0.00";
+                txtPublisher.value = "";
+                dtpkDatePublished.value = "";
+                txtTitle.focus();
+                alertMessageBox.style.display = "inline-block";
+            }).catch(function (error) {
+                console.error(error);
+                alertMessageBox.classList.remove("alert-success");
+                alertMessageBox.classList.add("alert-danger");
+                alertMessageBox.style.display = "inline-block";
+            })
+        };
+
+
+    </script>
+
+
+
 
 </body>
 

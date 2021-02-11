@@ -17,7 +17,7 @@ function displayBooks(data) {
                             <td>${data[i].overdueFee}</td>
                             <td>${data[i].publisher}</td>
                             <td>${data[i].datePublished}</td>
-                            <td><a href ="#" data-toggle="tooltip" data-placement="bottom" onclick="editBook(${data[i].bookId},${i})">
+                            <td><a href ="editForm.html?bookId=${data[i].bookId}" data-toggle="tooltip" data-placement="bottom">
                               Edit</a></td>
                             <td><a href ="#" data-toggle="tooltip" data-placement="bottom" onclick="deleteBook(${data[i].bookId},${i})">
                               Delete</a></td>`
